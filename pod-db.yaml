@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-mysql
+  labels:
+    app.kubernetes.io/name: mysql-database
+    app.kubernetes.io/component: backend
+spec:
+  containers:
+  - name: mysql-db-container
+    image: 831394104903.dkr.ecr.us-east-1.amazonaws.com/assignment1-database:v0.1
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      value: mitul#9090
+    ports:
+    - containerPort: 3306

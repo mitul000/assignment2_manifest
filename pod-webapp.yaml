@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-web
+  labels:
+    app.kubernetes.io/name: webapp
+    app.kubernetes.io/component: frontend
+spec:
+  containers:
+  - name: web-app-container
+    image: 831394104903.dkr.ecr.us-east-1.amazonaws.com/assignment1-webapp:v0.1
+    ports:
+    - containerPort: 8080
+    env:
+      - name: DBHOST
+        value: mysql-service.mysql.svc.cluster.local
+      - name: DBPORT
+        value: "3306"
+      - name: DBPWD
+        value: "mitul#9090"
