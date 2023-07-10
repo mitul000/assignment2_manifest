@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sqldb-deployment
+  labels:
+    app: sqldb
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sqldb
+  template:
+    metadata:
+      labels:
+        app: sqldb
+    spec:
+       containers:
+        - image: 831394104903.dkr.ecr.us-east-1.amazonaws.com/assignment1-database:v0.1
+          name: mysql-db-container
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: mitul#9090

@@ -3,8 +3,7 @@ kind: Pod
 metadata:
   name: pod-web
   labels:
-    app.kubernetes.io/name: webapp
-    app.kubernetes.io/component: frontend
+    app: webapp
 spec:
   containers:
   - name: web-app-container
@@ -13,7 +12,7 @@ spec:
     - containerPort: 8080
     env:
       - name: DBHOST
-        value: mysql-service.mysql.svc.cluster.local
+        value: 10.244.0.5
       - name: DBPORT
         value: "3306"
       - name: DBPWD

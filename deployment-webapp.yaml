@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deployment
+  labels:
+    app: webapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+        - name: webapp-container
+          image: 831394104903.dkr.ecr.us-east-1.amazonaws.com/assignment1-webapp:v0.1
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DBHOST
+              value: 10.244.0.5
+            - name: DBPORT
+              value: "3306"
+            - name: DBPWD
+              value: "mitul#9090"

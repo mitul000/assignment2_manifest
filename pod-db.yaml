@@ -3,8 +3,7 @@ kind: Pod
 metadata:
   name: pod-mysql
   labels:
-    app.kubernetes.io/name: mysql-database
-    app.kubernetes.io/component: backend
+    app: mysql-database
 spec:
   containers:
   - name: mysql-db-container
